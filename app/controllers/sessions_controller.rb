@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
     @user = User.find_by({"email" => params["email"]})
     if @user.nil?
       redirect_to "/login"
-      flash["notice"] = "Wrong email, try again"
+      flash["notice"] = "Wrong email or you might not have an account"
     else
       if BCrypt::Password.new(@user["password"]) == params["password"]
         session["user_id"] = @user["id"]
-        flash["notice"] = "welcome #{@user["name"]}"
-        redirect_to "/"
+        flash["notice"] = "Welcome #{@user["username"]}!"
+        redirect_to "/places"
       else
         redirect_to "/login"
         flash["notice"] = "Wrong password"

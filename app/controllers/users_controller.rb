@@ -9,6 +9,6 @@ class UsersController < ApplicationController
     @user["email"] = params["email"]
     @user["password"] = BCrypt::Password.create(params["password"]) # store encrypted valuye into table
     @user.save
-    redirect_to "/"
+    redirect_to "/login"
   end
 end
