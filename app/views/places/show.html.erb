@@ -1,16 +1,49 @@
-<h1><%= @place["name"] %></h1>
+<!-- <h1><%= @place["name"] %></h1>
 
 <h2>My Entries</h2>
 <% for entry in @entries %>
   <h3><%= entry["title"] %></h3>
   <h4><%= entry["occurred_on"] %></h4>
   <p><%= entry["description"] %></p>
-<% end %>
+<% end %> -->
 
-<p>
+<div class="container mt-4">
+  <h1 class="mb-4"><%= @place["name"] %></h1>
+
+  <p>
+    <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
+  </p>
+
+  <div class="row g-4">
+    <% for entry in @entries %>
+      <div class="col-12 col-lg-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><%= entry["title"] %></h5>
+            <p class="card-text"><%= entry["description"] %></p>
+            <p class="card-text">
+              <small class="text-muted">
+                <%= entry["occurred_on"] %>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <p>
+    <a href="/places">Back to All Places</a>
+  </p>
+
+</div>
+
+
+<!-- <p>
   <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
 </p>
 
 <p>
   <a href="/places">Back to All Places</a>
-</p>
+</p> -->
