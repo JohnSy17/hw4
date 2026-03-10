@@ -10,9 +10,11 @@
 <div class="container mt-4">
   <h1 class="mb-4"><%= @place["name"] %></h1>
 
+  <% if session["user_id"] != nil %>
   <p>
     <a href="/entries/new?place_id=<%= @place["id"] %>", class="btn btn-outline-primary">New Entry</a>
   </p>
+  <% end %>
 
   <div class="row g-4">
     <% for entry in @entries %>
