@@ -3,3 +3,7 @@ a {
   @extend .btn;
   @extend .btn-outline-primary;
 }
+
+li {
+  margin-bottom: 20px;
+}
